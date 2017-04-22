@@ -47,7 +47,6 @@ int main() {
 		Node *p = tree[i].next;
 		bool flag = true;
 		while(p) {
-			// cout<<"node: "<<i<<" next: "<<p->val<<" size: "<<p->size<<endl;
 			flag = p->size > n / 2 ? false : flag;
 			p = p->next;
 		}
