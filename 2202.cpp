@@ -22,12 +22,14 @@ bool notReach(int x, int y) {
 }
 
 bool arrive(int x, int y, int per) {
-	// cout<<x<<" "<<y<<endl;
 	if (x == n && y == m) return true;
 	per = per + field[x][y];
 	if (per > 1) return false;
 	mark[x][y] = false;
 	bool r1, r2, r3, r4;
+	if (notReach(x + 1, y)) {
+		if (arrive(x + 1, y, per)) return true;
+	}
 	if (notReach(x, y+1)) {
 		if (arrive(x, y+1, per)) return true;
 	}
@@ -36,9 +38,6 @@ bool arrive(int x, int y, int per) {
 	}
 	if (notReach(x - 1, y )) {
 		if (arrive(x - 1, y, per)) return true;
-	}
-	if (notReach(x + 1, y)) {
-		if (arrive(x + 1, y, per)) return true;
 	}
 
 	return false;
